@@ -12,6 +12,7 @@ require('plugins.config.nvim_tree')
 require('plugins.config.wilder')
 require('plugins.config.hop')
 require('plugins.config.lualine')
+require('plugins.config.presence')
 
 return require('packer').startup(function(use) 
   use 'tpope/vim-fugitive'
@@ -38,6 +39,8 @@ return require('packer').startup(function(use)
   use 'nvim-tree/nvim-web-devicons'
   use 'nvim-tree/nvim-tree.lua'
   use 'rcarriga/nvim-notify'
+
+  use 'andweeb/presence.nvim'
 
   if PACKER_BOOTSTRAP then require('packer').sync() end
 end)
