@@ -7,6 +7,10 @@ set.softtabstop = 4
 set.shiftwidth = 4
 set.mouse = ""
 
+set.swapfile = false
+set.backup = false
+set.wrap = true
+
 vim.cmd [[colorscheme dracula]]
 
 vim.g.loaded_netrw = 1
