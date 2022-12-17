@@ -1,7 +1,32 @@
 local cmp = require('cmp')
 vim.g.completeopt = 'menu,menuone,noselect,noinsert'
 
-local select_opts = {behavior = cmp.SelectBehavior.Select}
+local select_opts = { behavior = cmp.SelectBehavior.Select }
+
+local icons = {
+	menu = {
+		nvim_lsp = '',
+		vsnip = '>',
+		buffer = '',
+		path = '/:',
+	},
+	kind = {
+		Class = "",
+		Constructor = "",
+		Function = "",
+		Keyword = "",
+		Method = "",
+		Module = "",
+		Snippet = "",
+		Text = "",
+		Variable = "",
+		Struct = "",
+		Enum = "",
+		Constant = "",
+		Field = "",
+		Interface = ""
+	}
+}
 
 cmp.setup({
 	snippet = {
@@ -10,7 +35,11 @@ cmp.setup({
 		end,
 	},
 	window = {
-		completion = cmp.config.window.bordered({ border = 'rounded' }),
+		completion = cmp.config.window.bordered({
+			border = {'╭', '─', '╮','│','╯', '─', '╰', '│'},
+			winhighlight = "Normal:CustomCmpMenu,FloatBorder:NONE,CursorLine:CustomCmpCursorLine",
+			scrollbar = false
+		}),
 		documentation = cmp.config.window.bordered({ border = 'rounded' }),
 	},
 	mapping = cmp.mapping.preset.insert({
@@ -23,15 +52,10 @@ cmp.setup({
 		['<S-CR>'] = cmp.mapping.confirm({ select = true }),
 	}),
 	formatting = {
-		fields = {'menu', 'abbr', 'kind'},
+		fields = { 'menu', 'abbr', 'kind' },
 		format = function(entry, item)
-			local menu_icon = {
-				nvim_lsp = '-',
-				vsnip = '>',
-				buffer = '|',
-				path = '/:',
-			}
-			item.menu = menu_icon[entry.source.name]
+			item.menu = icons.menu[entry.source.name]
+			item.kind = (icons.kind[item.kind] or "") .. " " .. item.kind
 			return item
 		end,
 	},
