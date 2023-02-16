@@ -10,7 +10,7 @@ set.mouse = ""
 
 set.swapfile = false
 set.backup = false
-set.wrap = true
+set.wrap = false
 
 function Number_toggle()
 	vim.o.relativenumber = not toggle
