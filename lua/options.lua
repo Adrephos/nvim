@@ -11,6 +11,7 @@ set.mouse = ""
 set.swapfile = false
 set.backup = false
 set.wrap = false
+set.clipboard = 'unnamedplus'
 
 function Number_toggle()
 	vim.o.relativenumber = not toggle
