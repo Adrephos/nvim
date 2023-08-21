@@ -38,7 +38,7 @@ cmp.setup({
 		completion = cmp.config.window.bordered({
 			border = {'╭', '─', '╮','│','╯', '─', '╰', '│'},
 			winhighlight = "Normal:CustomCmpMenu,FloatBorder:NONE,CursorLine:CustomCmpCursorLine",
-			scrollbar = false
+			scrollbar = true
 		}),
 		documentation = cmp.config.window.bordered({ border = 'rounded' }),
 	},
@@ -50,6 +50,7 @@ cmp.setup({
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
 		['<S-CR>'] = cmp.mapping.confirm({ select = true }),
+		['<CR>'] = cmp.mapping.confirm({ select = true }),
 	}),
 	formatting = {
 		fields = { 'menu', 'abbr', 'kind' },

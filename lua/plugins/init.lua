@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
 	use 'mattn/emmet-vim'
 	use 'nvim-lua/plenary.nvim'
 	use 'nvim-telescope/telescope.nvim'
+
 	use 'ThePrimeagen/harpoon'
 	use 'phaazon/hop.nvim'
 	use 'gelguy/wilder.nvim'
@@ -54,6 +55,20 @@ return require('packer').startup(function(use)
 	use 'rcarriga/nvim-notify'
 
 	use 'andweeb/presence.nvim'
+	use 'jalvesaq/Nvim-R'
+
+	-- install without yarn or npm
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function() vim.fn["mkdp#util#install"]() end,
+	})
+
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+		ft = { "markdown" },
+	})
 
 	if PACKER_BOOTSTRAP then require('packer').sync() end
 end)
