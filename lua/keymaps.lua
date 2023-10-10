@@ -31,3 +31,9 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" },
 	pattern = { "*.cpp" },
 	callback = CompileCpp
 })
+
+-- Copilot
+vim.api.nvim_set_keymap('i', '<C-l>', "copilot#Accept('<CR>')", { expr = true, silent = true })
+vim.keymap.set('i', '<C-j>', '<Plug>(copilot-next)')
+vim.keymap.set('i', '<C-k>', '<Plug>(copilot-previous)')
+vim.g.copilot_no_tab_map = true
