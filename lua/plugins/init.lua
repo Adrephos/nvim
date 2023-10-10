@@ -9,20 +9,24 @@ local ok, _ = pcall(require, "packer")
 if not ok then return end
 
 require('plugins.config.nvim_tree')
-require('plugins.config.wilder')
 require('plugins.config.hop')
 require('plugins.config.lualine')
 require('plugins.config.presence')
 require('plugins.config.mason')
 require('plugins.config.cmp')
+require('plugins.config.gitsigns')
+require('plugins.config.indent_blankline')
+require('plugins.config.noice')
+require('plugins.config.treesitter')
 
 return require('packer').startup(function(use)
 	use 'tpope/vim-fugitive'
+	use 'lewis6991/gitsigns.nvim'
+
 	use 'jiangmiao/auto-pairs'
 	use 'mattn/emmet-vim'
 	use 'nvim-lua/plenary.nvim'
 	use 'nvim-telescope/telescope.nvim'
-
 	use 'ThePrimeagen/harpoon'
 	use 'phaazon/hop.nvim'
 	use 'gelguy/wilder.nvim'
@@ -44,30 +48,27 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/vim-vsnip'
 	use 'hrsh7th/cmp-path'
 
-	use 'afriguez/dracula.nvim'
+	use 'Adrephos/dracula.nvim'
+
+	use 'nvim-tree/nvim-web-devicons'
+	use 'nvim-tree/nvim-tree.lua'
+	use 'rcarriga/nvim-notify'
+	use 'lukas-reineke/indent-blankline.nvim'
+	use 'folke/noice.nvim'
+	use 'MunifTanjim/nui.nvim'
+	use 'nvim-treesitter/nvim-treesitter'
+
+	use 'andweeb/presence.nvim'
+	use 'github/copilot.vim'
 
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
-	use 'nvim-tree/nvim-web-devicons'
-	use 'nvim-tree/nvim-tree.lua'
-	use 'rcarriga/nvim-notify'
 
-	use 'andweeb/presence.nvim'
-	use 'jalvesaq/Nvim-R'
-
-	-- install without yarn or npm
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
-	})
-
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-		ft = { "markdown" },
 	})
 
 	if PACKER_BOOTSTRAP then require('packer').sync() end
