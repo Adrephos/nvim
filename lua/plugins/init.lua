@@ -18,6 +18,7 @@ require('plugins.config.gitsigns')
 require('plugins.config.indent_blankline')
 require('plugins.config.noice')
 require('plugins.config.treesitter')
+require('plugins.config.hex')
 
 return require('packer').startup(function(use)
 	use 'tpope/vim-fugitive'
@@ -70,6 +71,9 @@ return require('packer').startup(function(use)
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
 	})
+
+	-- Hex editor
+	use 'RaafatTurki/hex.nvim'
 
 	if PACKER_BOOTSTRAP then require('packer').sync() end
 end)
