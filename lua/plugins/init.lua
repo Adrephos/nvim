@@ -75,5 +75,15 @@ return require('packer').startup(function(use)
 	-- Hex editor
 	use 'RaafatTurki/hex.nvim'
 
+	-- Screenshot
+	use {
+		"michaelrommel/nvim-silicon",
+		lazy = true,
+		cmd = "Silicon",
+		config = function()
+			require("plugins.config.silicon")
+		end
+	}
+
 	if PACKER_BOOTSTRAP then require('packer').sync() end
 end)

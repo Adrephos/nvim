@@ -37,3 +37,7 @@ vim.api.nvim_set_keymap('i', '<C-l>', "copilot#Accept('<CR>')", { expr = true, s
 vim.keymap.set('i', '<C-j>', '<Plug>(copilot-next)')
 vim.keymap.set('i', '<C-k>', '<Plug>(copilot-previous)')
 vim.g.copilot_no_tab_map = true
+
+-- Snippets
+vim.keymap.set('v', '<Leader>s',  ":Silicon<CR>" )
+vim.keymap.set('n', '<Leader>bs', ':Silicon<CR>' )
