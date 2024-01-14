@@ -75,6 +75,12 @@ return require('packer').startup(function(use)
 	-- Hex editor
 	use 'RaafatTurki/hex.nvim'
 
+	-- Color highlight
+	use {
+		'rrethy/vim-hexokinase',
+		run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase'
+	}
+
 	-- Screenshot
 	use {
 		"michaelrommel/nvim-silicon",

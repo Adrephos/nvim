@@ -96,6 +96,8 @@ vim.g.vim_jsx_pretty_colorful_config = 1
 
 vim.notify = require('notify')
 
+vim.g.Hexokinase_highlighters = {'backgroundfull'}
+
 vim.keymap.set('n', '<F2>', ':lua Number_toggle()<CR>', {})
 
 vim.keymap.set('n', '<F8>', ':lua compileCFile()<CR>', {})
