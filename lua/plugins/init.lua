@@ -91,10 +91,15 @@ return require('packer').startup(function(use)
 
 	-- Theme
 	use {
-    "EdenEast/nightfox.nvim",
-    require("nightfox").setup({
+		"EdenEast/nightfox.nvim",
+		require("nightfox").setup({
 			options = {
 				transparent = true,
+				inverse = { -- Inverse highlight for different types
+					match_paren = true,
+					visual = true,
+					search = true,
+				},
 			},
 		})
 	}
