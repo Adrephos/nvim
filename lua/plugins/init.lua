@@ -49,8 +49,6 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/vim-vsnip'
 	use 'hrsh7th/cmp-path'
 
-	use 'Adrephos/dracula.nvim'
-
 	use 'nvim-tree/nvim-web-devicons'
 	use 'nvim-tree/nvim-tree.lua'
 	use 'rcarriga/nvim-notify'
@@ -89,6 +87,16 @@ return require('packer').startup(function(use)
 		config = function()
 			require("plugins.config.silicon")
 		end
+	}
+
+	-- Theme
+	use {
+    "EdenEast/nightfox.nvim",
+    require("nightfox").setup({
+			options = {
+				transparent = true,
+			},
+		})
 	}
 
 	if PACKER_BOOTSTRAP then require('packer').sync() end

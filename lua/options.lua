@@ -84,7 +84,7 @@ function compileCPPFile()
     end
 end
 
-vim.cmd [[colorscheme dracula]]
+vim.cmd [[colorscheme carbonfox]]
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
