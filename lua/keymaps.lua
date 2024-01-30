@@ -1,43 +1,56 @@
+local opts = { silent = true }
 -- telescope
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>gi', builtin.git_files, {})
-vim.keymap.set('n', '<leader>fi', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>gi', builtin.git_files, opts)
+vim.keymap.set('n', '<leader>fi', builtin.find_files, opts)
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, opts)
+vim.keymap.set('n', '<leader>fb', builtin.buffers, opts)
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
 
 -- vim-fugitive
-vim.keymap.set('n', '<leader>gs', ':Git<CR>')
-vim.keymap.set('n', '<leader>gj', ':diffget //3<CR>')
-vim.keymap.set('n', '<leader>gf', ':diffget //2<CR>')
-vim.keymap.set('n', '<leader>gk', ':Git commit<CR>')
+vim.keymap.set('n', '<leader>gs', ':Git<CR>', opts)
+vim.keymap.set('n', '<leader>gj', ':diffget //3<CR>', opts)
+vim.keymap.set('n', '<leader>gf', ':diffget //2<CR>', opts)
+vim.keymap.set('n', '<leader>gk', ':Git commit<CR>', opts)
+vim.keymap.set('n', '<leader>gvd', ':Gvdiffsplit!<CR>', opts)
 
 -- nvim-tree
-vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
+
+-- Notify
+vim.keymap.set('n', '<leader>nd', '<cmd>NoiceDismiss<CR>', opts)
 
 -- HopWord
-vim.keymap.set('n', '<leader>hw', ':HopWord<CR>')
+vim.keymap.set('n', '<leader>hw', ':HopWord<CR>', opts)
 
 -- harpoon
-vim.keymap.set('n', '<leader>hf', require('harpoon.mark').add_file, {})
-vim.keymap.set('n', '<leader>hl', require('harpoon.ui').toggle_quick_menu, {})
+vim.keymap.set('n', '<leader>hf', require('harpoon.mark').add_file, opts)
+vim.keymap.set('n', '<leader>hl', require('harpoon.ui').toggle_quick_menu, opts)
 
--- Compile c++
-function CompileCpp()
-	vim.keymap.set('n', '<F8>',' :w <CR> :!clear ; g++ --std=c++17 -o %:r %; if [ -f a.out ]; then time ./a.out; fi <CR>', {})
-end
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" },
-{
-	pattern = { "*.cpp" },
-	callback = CompileCpp
-})
+-- Custom
+vim.keymap.set('n', 'K', ':m .-2<CR>==', opts)
+vim.keymap.set('n', 'J', ':m .+1<CR>==', opts)
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
 
 -- Copilot
 vim.api.nvim_set_keymap('i', '<C-l>', "copilot#Accept('<CR>')", { expr = true, silent = true })
-vim.keymap.set('i', '<C-j>', '<Plug>(copilot-next)')
-vim.keymap.set('i', '<C-k>', '<Plug>(copilot-previous)')
+vim.keymap.set('i', '<C-j>', '<Plug>(copilot-next)', opts)
+vim.keymap.set('i', '<C-k>', '<Plug>(copilot-previous)', opts)
 vim.g.copilot_no_tab_map = true
 
+-- Clipboard
+-- Copy to clipboard
+vim.api.nvim_set_keymap('x', '<leader>y', '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>Y', '"+yg_', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>y', '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>yy', '"+yy', { noremap = true, silent = true })
+-- Paste from clipboard
+vim.api.nvim_set_keymap('n', '<leader>p', '"+p', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>P', '"+P', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', '<leader>p', '"+p', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', '<leader>P', '"+P', { noremap = true, silent = true })
+
 -- Snippets
-vim.keymap.set('v', '<Leader>s',  ":Silicon<CR>" )
-vim.keymap.set('n', '<Leader>bs', ':Silicon<CR>' )
+vim.keymap.set('v', '<Leader>s', ":Silicon<CR>", opts)
+vim.keymap.set('n', '<Leader>bs', ':Silicon<CR>', opts)
