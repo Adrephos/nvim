@@ -56,6 +56,12 @@ return require('packer').startup(function(use)
 	use 'folke/noice.nvim'
 	use 'MunifTanjim/nui.nvim'
 	use 'nvim-treesitter/nvim-treesitter'
+	use {
+		'nvim-treesitter/nvim-treesitter-context',
+		require('treesitter-context').setup({
+			multiline_threshold = 1,
+		}),
+	}
 
 	use 'andweeb/presence.nvim'
 	use 'github/copilot.vim'
@@ -91,17 +97,16 @@ return require('packer').startup(function(use)
 
 	-- Theme
 	use {
-		"EdenEast/nightfox.nvim",
-		require("nightfox").setup({
-			options = {
-				transparent = true,
-				inverse = { -- Inverse highlight for different types
-					match_paren = true,
-					visual = true,
-					search = true,
-				},
+		"folke/tokyonight.nvim",
+		require("tokyonight").setup({
+			style = "moon",
+			transparent = true,
+			styles = {
+				floats = "transparent",
+				sidebars = "transparent",
 			},
-		})
+			lualine_bold = true,
+		}),
 	}
 
 	if PACKER_BOOTSTRAP then require('packer').sync() end
