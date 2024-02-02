@@ -27,11 +27,22 @@ vim.keymap.set('n', '<leader>hw', ':HopWord<CR>', opts)
 vim.keymap.set('n', '<leader>hf', require('harpoon.mark').add_file, opts)
 vim.keymap.set('n', '<leader>hl', require('harpoon.ui').toggle_quick_menu, opts)
 
+-- Gitsigns
+local gs = require('gitsigns')
+vim.keymap.set('n', '<leader>hb', function() gs.blame_line { full = true } end, opts)
+vim.keymap.set('n', '<leader>hd', gs.toggle_deleted, opts)
+
+-- treesitter
+local tsc = require('treesitter-context')
+vim.keymap.set('n', ']c', function() tsc.go_to_context(vim.v.count1) end, opts)
+
 -- Custom
 vim.keymap.set('n', 'K', ':m .-2<CR>==', opts)
 vim.keymap.set('n', 'J', ':m .+1<CR>==', opts)
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set('n', 'j', "gj", opts)
+vim.keymap.set('n', 'k', "gk", opts)
 
 -- Copilot
 vim.api.nvim_set_keymap('i', '<C-l>', "copilot#Accept('<CR>')", { expr = true, silent = true })
