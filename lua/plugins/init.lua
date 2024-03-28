@@ -96,17 +96,11 @@ return require('packer').startup(function(use)
 	}
 
 	-- Theme
-	use {
-		"folke/tokyonight.nvim",
-		require("tokyonight").setup({
-			style = "moon",
-			transparent = true,
-			styles = {
-				floats = "transparent",
-				sidebars = "transparent",
-			},
-			lualine_bold = true,
-		}),
+	use { 
+		"catppuccin/nvim", as = "catppuccin" ,
+		require("catppuccin").setup({
+			flavour = "macchiato"
+		})
 	}
 
 	if PACKER_BOOTSTRAP then require('packer').sync() end

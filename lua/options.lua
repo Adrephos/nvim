@@ -26,7 +26,8 @@ function Number_toggle()
 	toggle = not toggle
 end
 
-vim.cmd [[colorscheme tokyonight]]
+-- vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[colorscheme catppuccin]]
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
