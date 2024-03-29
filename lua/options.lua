@@ -9,6 +9,7 @@ set.number = toggle
 set.relativenumber = toggle
 set.tabstop = 2
 set.softtabstop = 2
+set.expandtab = true
 set.shiftwidth = 2
 set.mouse = ""
 
@@ -21,9 +22,9 @@ set.listchars:append "space:⋅"
 set.listchars:append "eol:↴"
 
 function Number_toggle()
-	vim.o.relativenumber = not toggle
-	vim.o.number = not toggle
-	toggle = not toggle
+  vim.o.relativenumber = not toggle
+  vim.o.number = not toggle
+  toggle = not toggle
 end
 
 -- vim.cmd [[colorscheme tokyonight]]
