@@ -1,4 +1,14 @@
 local opts = { silent = true }
+-- lsp & diagnostic
+vim.keymap.set('n', '<leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+vim.keymap.set('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+vim.keymap.set('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+vim.keymap.set('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+vim.keymap.set('n', '<C-l>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+vim.keymap.set('n', '<leader>gp', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
+vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 -- telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>gi', builtin.git_files, opts)
@@ -45,7 +55,7 @@ vim.keymap.set('n', 'j', "gj", opts)
 vim.keymap.set('n', 'k', "gk", opts)
 
 -- Copilot
-vim.api.nvim_set_keymap('i', '<C-l>', "copilot#Accept('<CR>')", { expr = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-f>', "copilot#Accept('<CR>')", { expr = true, silent = true })
 vim.keymap.set('i', '<C-j>', '<Plug>(copilot-next)', opts)
 vim.keymap.set('i', '<C-k>', '<Plug>(copilot-previous)', opts)
 vim.g.copilot_no_tab_map = true
@@ -62,6 +72,6 @@ vim.api.nvim_set_keymap('n', '<leader>P', '"+P', { noremap = true, silent = true
 vim.api.nvim_set_keymap('x', '<leader>p', '"+p', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', '<leader>P', '"+P', { noremap = true, silent = true })
 
--- Snippets
-vim.keymap.set('v', '<Leader>s', ":Silicon<CR>", opts)
-vim.keymap.set('n', '<Leader>bs', ':Silicon<CR>', opts)
+-- DataViewer
+vim.keymap.set('n', '<Leader>dv', ":DataViewer<CR>", opts)
+vim.keymap.set('n', '<Leader>dvc', ":DataViewerClose<CR>", opts)

@@ -23,6 +23,7 @@ require('plugins.config.hex')
 return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
+  use 'vidocqh/data-viewer.nvim'
 
   use 'jiangmiao/auto-pairs'
   use 'mattn/emmet-vim'
@@ -87,10 +88,7 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-  })
+  use {"iamcco/markdown-preview.nvim"}
 
   -- Hex editor
   use 'RaafatTurki/hex.nvim'
@@ -99,16 +97,6 @@ return require('packer').startup(function(use)
   use {
     'rrethy/vim-hexokinase',
     run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase'
-  }
-
-  -- Screenshot
-  use {
-    "michaelrommel/nvim-silicon",
-    lazy = true,
-    cmd = "Silicon",
-    config = function()
-      require("plugins.config.silicon")
-    end
   }
 
   -- Theme
