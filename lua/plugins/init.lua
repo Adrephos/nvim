@@ -50,6 +50,16 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/cmp-path'
 
+  use({
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    tag = "v2.*",
+    -- install jsregexp (optional!:).
+    run = "make install_jsregexp"
+  })
+  use 'rafamadriz/friendly-snippets'
+  use 'mlaursen/vim-react-snippets'
+
   use 'nvim-tree/nvim-web-devicons'
   use 'nvim-tree/nvim-tree.lua'
   use 'rcarriga/nvim-notify'
