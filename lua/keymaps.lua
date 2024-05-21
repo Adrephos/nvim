@@ -74,3 +74,19 @@ vim.api.nvim_set_keymap('x', '<leader>P', '"+P', { noremap = true, silent = true
 -- DataViewer
 vim.keymap.set('n', '<Leader>dv', ":DataViewer<CR>", opts)
 vim.keymap.set('n', '<Leader>dvc', ":DataViewerClose<CR>", opts)
+
+-- Tabs
+--
+local map = vim.api.nvim_set_keymap
+-- Move to previous/next
+map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
+
+-- Pin/unpin buffer
+map('n', '<A-t>', '<Cmd>BufferPin<CR>', opts)
+
+-- Close buffer
+map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
+
+-- Magic buffer-picking mode
+map('n', '<C-i>', '<Cmd>BufferPick<CR>', opts)
