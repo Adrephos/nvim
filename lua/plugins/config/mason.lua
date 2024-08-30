@@ -8,6 +8,10 @@ require('mason').setup({
   }
 })
 
+require('lspconfig').dartls.setup {
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+}
+
 local on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true }
 
