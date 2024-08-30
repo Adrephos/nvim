@@ -33,9 +33,8 @@ return require('packer').startup(function(use)
   use 'phaazon/hop.nvim'
   use 'gelguy/wilder.nvim'
 
-  -- These optional plugins should be loaded directly because of a bug in Packer lazy loading
-  use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
-  use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+  use 'nvim-tree/nvim-web-devicons'
+  use 'lewis6991/gitsigns.nvim'
   use 'romgrk/barbar.nvim'
 
   use 'elixir-editors/vim-elixir'
@@ -83,27 +82,27 @@ return require('packer').startup(function(use)
   use 'github/copilot.vim'
 
   use {
-  'VonHeikemen/lsp-zero.nvim',
-  branch = 'v3.x',
-  requires = {
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
-    {'neovim/nvim-lspconfig'},
-    {'hrsh7th/nvim-cmp'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'L3MON4D3/LuaSnip'},
-  },
-  require('lspconfig')['hls'].setup{
-    filetypes = { 'haskell', 'lhaskell', 'cabal' },
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
+    requires = {
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
+      { 'neovim/nvim-lspconfig' },
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'L3MON4D3/LuaSnip' },
+    },
+    require('lspconfig')['hls'].setup {
+      filetypes = { 'haskell', 'lhaskell', 'cabal' },
+    }
   }
-}
 
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  use {"iamcco/markdown-preview.nvim"}
+  use { "iamcco/markdown-preview.nvim" }
 
   -- Hex editor
   use 'RaafatTurki/hex.nvim'
@@ -115,10 +114,14 @@ return require('packer').startup(function(use)
   }
 
   -- Theme
-  use { 
-    "catppuccin/nvim", as = "catppuccin" ,
+  use {
+    "catppuccin/nvim", as = "catppuccin",
     require("catppuccin").setup({
-      flavour = "macchiato"
+      flavour = "macchiato",
+      transparent_background = true,
+      styles = {
+        comments = { "italic" }
+      },
     })
   }
 

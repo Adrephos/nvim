@@ -54,7 +54,7 @@ vim.keymap.set('n', 'j', "gj", opts)
 vim.keymap.set('n', 'k', "gk", opts)
 
 -- Copilot
-vim.api.nvim_set_keymap('i', '<C-f>', "copilot#Accept('<CR>')", { expr = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-l>', "copilot#Accept('<CR>')", { expr = true, silent = true })
 vim.keymap.set('i', '<C-j>', '<Plug>(copilot-next)', opts)
 vim.keymap.set('i', '<C-k>', '<Plug>(copilot-previous)', opts)
 vim.g.copilot_no_tab_map = true
