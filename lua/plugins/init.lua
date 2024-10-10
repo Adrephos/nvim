@@ -18,7 +18,7 @@ require('plugins.config.gitsigns')
 require('plugins.config.indent_blankline')
 require('plugins.config.noice')
 require('plugins.config.treesitter')
-require('plugins.config.hex')
+-- require('plugins.config.hex')
 
 return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
@@ -33,8 +33,6 @@ return require('packer').startup(function(use)
   use 'phaazon/hop.nvim'
   use 'gelguy/wilder.nvim'
 
-  use 'nvim-tree/nvim-web-devicons'
-  use 'lewis6991/gitsigns.nvim'
   use 'romgrk/barbar.nvim'
 
   use 'elixir-editors/vim-elixir'
@@ -102,10 +100,28 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  use {
+    'javiorfo/nvim-springtime',
+    requires = {
+      "javiorfo/nvim-popcorn",
+      "javiorfo/nvim-spinetta",
+      "hrsh7th/nvim-cmp"
+    },
+    run = function()
+      require 'springtime.core'.update()
+    end,
+    require'springtime'.setup({
+      dialog = {
+        selection_keymap = "<S-Tab>",
+        generate_keymap = "<C-Space>"
+      }
+    }),
+  }
+
   use { "iamcco/markdown-preview.nvim" }
 
   -- Hex editor
-  use 'RaafatTurki/hex.nvim'
+  -- use 'RaafatTurki/hex.nvim'
 
   -- Color highlight
   use {
