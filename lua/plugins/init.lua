@@ -30,7 +30,10 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'ThePrimeagen/harpoon'
-  use 'phaazon/hop.nvim'
+  use {
+    'smoka7/hop.nvim',
+    tag = '*', -- optional but strongly recommended
+  }
   use 'gelguy/wilder.nvim'
 
   use 'romgrk/barbar.nvim'
@@ -110,7 +113,7 @@ return require('packer').startup(function(use)
     run = function()
       require 'springtime.core'.update()
     end,
-    require'springtime'.setup({
+    require 'springtime'.setup({
       dialog = {
         selection_keymap = "<S-Tab>",
         generate_keymap = "<C-Space>"

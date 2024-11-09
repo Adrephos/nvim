@@ -19,6 +19,7 @@ set.wrap = true
 
 set.list = true
 set.listchars:append "space:⋅"
+set.listchars:append "tab:║⋅"
 set.listchars:append "eol:↴"
 
 function Number_toggle()
@@ -40,7 +41,7 @@ vim.g.vim_jsx_pretty_colorful_config = 1
 
 vim.notify = require('notify')
 
-vim.g.Hexokinase_highlighters = {'backgroundfull'}
+vim.g.Hexokinase_highlighters = { 'backgroundfull' }
 
 vim.keymap.set('n', '<F2>', ':lua Number_toggle()<CR>', {})
 
