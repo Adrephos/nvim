@@ -28,14 +28,14 @@ function Number_toggle()
   toggle = not toggle
 end
 
--- vim.cmd [[colorscheme tokyonight]]
 vim.cmd [[colorscheme catppuccin]]
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.g.mkdp_auto_start = 1
-vim.g.mkdp_refresh_slow = 1
+vim.g.mkdp_auto_close = 0
+vim.g.mkdp_combine_preview = 1
 
 vim.g.vim_jsx_pretty_colorful_config = 1
 
