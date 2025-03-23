@@ -80,7 +80,12 @@ return require('packer').startup(function(use)
   }
 
   use 'andweeb/presence.nvim'
-  use 'github/copilot.vim'
+  -- use 'github/copilot.vim'
+
+  use {
+    'folke/todo-comments.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+  }
 
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -143,6 +148,17 @@ return require('packer').startup(function(use)
       },
     })
   }
+
+  require'lspconfig'.nil_ls.setup {
+    settings = {
+      ['nil'] = {
+        formatting = {
+          command = { "nixpkgs-fmt" }
+        }
+      }
+    }
+  }
+
 
   if PACKER_BOOTSTRAP then require('packer').sync() end
 end)

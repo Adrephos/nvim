@@ -8,14 +8,14 @@ require("nvim-tree").setup({
     adaptive_size = true,
     number = true,
     relativenumber = true,
-    float = {
-      enable = true,
-      quit_on_focus_loss = true,
-      open_win_config = {
-      relative = "cursor",
-      height = 15,
-      }
-    },
+    -- float = {
+    --   enable = true,
+    --   quit_on_focus_loss = true,
+    --   open_win_config = {
+    --   relative = "cursor",
+    --   height = 15,
+    --   }
+    -- },
   },
   renderer = {
     group_empty = true,
