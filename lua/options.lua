@@ -4,6 +4,7 @@ local toggle = true
 vim.g.R_objbr_auto_start = 2
 vim.g.R_auto_start = 2
 vim.g.R_objbr_place = 'BOTTOM'
+vim.opt.laststatus = 3
 
 set.number = toggle
 set.relativenumber = toggle

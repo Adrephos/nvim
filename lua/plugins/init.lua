@@ -18,16 +18,29 @@ require('plugins.config.gitsigns')
 require('plugins.config.indent_blankline')
 require('plugins.config.noice')
 require('plugins.config.treesitter')
+require('plugins.config.avante')
+
 -- require('plugins.config.hex')
 
 return require('packer').startup(function(use)
+  -- Theme
+  use {
+    "catppuccin/nvim", as = "catppuccin",
+    require("catppuccin").setup({
+      flavour = "macchiato",
+      transparent_background = true,
+      styles = {
+        comments = { "italic" }
+      },
+    })
+  }
+
   use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
   use 'vidocqh/data-viewer.nvim'
 
   use 'jiangmiao/auto-pairs'
   use 'mattn/emmet-vim'
-  use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'ThePrimeagen/harpoon'
   use {
@@ -65,13 +78,31 @@ return require('packer').startup(function(use)
   use 'rafamadriz/friendly-snippets'
   use 'mlaursen/vim-react-snippets'
 
-  use 'nvim-tree/nvim-web-devicons'
   use 'nvim-tree/nvim-tree.lua'
   use 'rcarriga/nvim-notify'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'folke/noice.nvim'
-  use 'MunifTanjim/nui.nvim'
+
   use 'nvim-treesitter/nvim-treesitter'
+  use 'stevearc/dressing.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'MunifTanjim/nui.nvim'
+  use 'MeanderingProgrammer/render-markdown.nvim'
+  use 'hrsh7th/nvim-cmp'
+  use 'nvim-tree/nvim-web-devicons' -- or use 'echasnovski/mini.icons'
+  use 'HakonHarnes/img-clip.nvim'
+
+  -- Avante.nvim with build process
+  use {
+    'yetone/avante.nvim',
+    branch = 'main',
+    run = 'make',
+    config = function()
+      require('avante_lib').load()
+      require('avante').setup()
+    end
+  }
+
   use {
     'nvim-treesitter/nvim-treesitter-context',
     require('treesitter-context').setup({
@@ -135,18 +166,6 @@ return require('packer').startup(function(use)
   use {
     'rrethy/vim-hexokinase',
     run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase'
-  }
-
-  -- Theme
-  use {
-    "catppuccin/nvim", as = "catppuccin",
-    require("catppuccin").setup({
-      flavour = "macchiato",
-      transparent_background = true,
-      styles = {
-        comments = { "italic" }
-      },
-    })
   }
 
   require'lspconfig'.nil_ls.setup {
