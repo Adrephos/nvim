@@ -20,6 +20,7 @@ require('plugins.config.treesitter')
 require('plugins.config.avante')
 require('plugins.config.oil')
 require('plugins.config.mini_icons')
+require('plugins.config.auto_session')
 
 -- require('plugins.config.hex')
 
@@ -35,6 +36,8 @@ return require('packer').startup(function(use)
       },
     })
   }
+
+  use 'rmagatti/auto-session'
 
   use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
