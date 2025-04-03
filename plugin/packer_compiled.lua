@@ -85,7 +85,7 @@ _G.packer_plugins = {
     url = "https://github.com/jiangmiao/auto-pairs"
   },
   ["avante.nvim"] = {
-    config = { "\27LJ\2\nX\0\0\3\0\5\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\4\0B\0\1\1K\0\1\0\nsetup\vavante\tload\15avante_lib\frequire\0" },
+    config = { "\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\tload\15avante_lib\frequire\0" },
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/avante.nvim",
     url = "https://github.com/yetone/avante.nvim"
@@ -231,11 +231,6 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/nvim-springtime",
     url = "https://github.com/javiorfo/nvim-springtime"
   },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/nvim-tree/nvim-tree.lua"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -245,6 +240,19 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+  },
+  ["oil-git-status.nvim"] = {
+    config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19oil-git-status\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/opt/oil-git-status.nvim",
+    url = "https://github.com/refractalize/oil-git-status.nvim"
+  },
+  ["oil.nvim"] = {
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/oil.nvim",
+    url = "https://github.com/stevearc/oil.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -324,14 +332,23 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: avante.nvim
+time([[Config for avante.nvim]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\tload\15avante_lib\frequire\0", "config", "avante.nvim")
+time([[Config for avante.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\nc\0\0\3\0\4\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\1\0B\0\2\0029\0\3\0B\0\1\1K\0\1\0\27mock_nvim_web_devicons\nsetup\15mini.icons\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
--- Config for: avante.nvim
-time([[Config for avante.nvim]], true)
-try_loadstring("\27LJ\2\nX\0\0\3\0\5\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\4\0B\0\1\1K\0\1\0\nsetup\vavante\tload\15avante_lib\frequire\0", "config", "avante.nvim")
-time([[Config for avante.nvim]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd oil.nvim ]]
+vim.cmd [[ packadd oil-git-status.nvim ]]
+
+-- Config for: oil-git-status.nvim
+try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19oil-git-status\frequire\0", "config", "oil-git-status.nvim")
+
+time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -11,20 +11,21 @@ function _G.get_oil_winbar()
 end
 
 require("oil").setup({
+  skip_confirm_for_simple_edit = true,
+  watch_for_changes = true,
   column = {
     "icon",
     "size",
     "permission"
   },
+  view_options = {
+    show_hidden = true,
+    is_always_hidden = function(name, _)
+      return name == '..'
+    end,
+  },
   win_options = {
     winbar = "%!v:lua.get_oil_winbar()",
-    wrap = false,
-    signcolumn = "no",
-    cursorcolumn = false,
-    foldcolumn = "0",
-    spell = false,
-    list = false,
-    conceallevel = 3,
-    concealcursor = "nvic",
+    signcolumn = "yes:2",
   },
 })

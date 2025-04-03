@@ -181,5 +181,15 @@ return require('packer').startup(function(use)
 
   use 'stevearc/oil.nvim'
 
+  use {
+    'refractalize/oil-git-status.nvim',
+    after = {
+      "oil.nvim",
+    },
+    config = function()
+      require("oil-git-status").setup()
+    end,
+  }
+
   if PACKER_BOOTSTRAP then require('packer').sync() end
 end)
