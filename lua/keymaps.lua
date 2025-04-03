@@ -23,18 +23,14 @@ vim.keymap.set('n', '<leader>gf', ':diffget //2<CR>', opts)
 vim.keymap.set('n', '<leader>gk', ':Git commit<CR>', opts)
 vim.keymap.set('n', '<leader>gvd', ':Gvdiffsplit!<CR>', opts)
 
--- nvim-tree
-vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
+-- Oil
+vim.keymap.set('n', '<C-n>', '<CMD>Oil<CR>', opts)
 
 -- Notify
 vim.keymap.set('n', '<leader>nd', '<cmd>NoiceDismiss<CR>', opts)
 
 -- HopWord
 vim.keymap.set('n', '<leader>hw', ':HopWord<CR>', opts)
-
--- harpoon
-vim.keymap.set('n', '<leader>hf', require('harpoon.mark').add_file, opts)
-vim.keymap.set('n', '<leader>hl', require('harpoon.ui').toggle_quick_menu, opts)
 
 -- Gitsigns
 local gs = require('gitsigns')

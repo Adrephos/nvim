@@ -8,7 +8,6 @@ end
 local ok, _ = pcall(require, "packer")
 if not ok then return end
 
-require('plugins.config.nvim_tree')
 require('plugins.config.hop')
 require('plugins.config.lualine')
 require('plugins.config.presence')
@@ -19,6 +18,8 @@ require('plugins.config.indent_blankline')
 require('plugins.config.noice')
 require('plugins.config.treesitter')
 require('plugins.config.avante')
+require('plugins.config.oil')
+require('plugins.config.mini_icons')
 
 -- require('plugins.config.hex')
 
@@ -42,10 +43,9 @@ return require('packer').startup(function(use)
   use 'jiangmiao/auto-pairs'
   use 'mattn/emmet-vim'
   use 'nvim-telescope/telescope.nvim'
-  use 'ThePrimeagen/harpoon'
   use {
     'smoka7/hop.nvim',
-    tag = '*', -- optional but strongly recommended
+    tag = '*',
   }
   use 'gelguy/wilder.nvim'
 
@@ -78,7 +78,6 @@ return require('packer').startup(function(use)
   use 'rafamadriz/friendly-snippets'
   use 'mlaursen/vim-react-snippets'
 
-  use 'nvim-tree/nvim-tree.lua'
   use 'rcarriga/nvim-notify'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'folke/noice.nvim'
@@ -88,8 +87,7 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'MunifTanjim/nui.nvim'
   use 'MeanderingProgrammer/render-markdown.nvim'
-  use 'hrsh7th/nvim-cmp'
-  use 'nvim-tree/nvim-web-devicons' -- or use 'echasnovski/mini.icons'
+  use 'echasnovski/mini.icons'
   use 'HakonHarnes/img-clip.nvim'
 
   -- Avante.nvim with build process
@@ -99,7 +97,6 @@ return require('packer').startup(function(use)
     run = 'make',
     config = function()
       require('avante_lib').load()
-      require('avante').setup()
     end
   }
 
@@ -136,7 +133,11 @@ return require('packer').startup(function(use)
 
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    dependencies = { 'echasnovski/mini.icons' },
+    config = function()
+      require("mini.icons").setup()
+      require("mini.icons").mock_nvim_web_devicons()
+    end
   }
 
   use {
@@ -168,7 +169,7 @@ return require('packer').startup(function(use)
     run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase'
   }
 
-  require'lspconfig'.nil_ls.setup {
+  require 'lspconfig'.nil_ls.setup {
     settings = {
       ['nil'] = {
         formatting = {
@@ -178,6 +179,7 @@ return require('packer').startup(function(use)
     }
   }
 
+  use 'stevearc/oil.nvim'
 
   if PACKER_BOOTSTRAP then require('packer').sync() end
 end)
