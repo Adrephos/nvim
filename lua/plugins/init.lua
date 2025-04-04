@@ -21,21 +21,13 @@ require('plugins.config.avante')
 require('plugins.config.oil')
 require('plugins.config.mini_icons')
 require('plugins.config.auto_session')
+require('plugins.config.catppuccin')
 
 -- require('plugins.config.hex')
 
 return require('packer').startup(function(use)
   -- Theme
-  use {
-    "catppuccin/nvim", as = "catppuccin",
-    require("catppuccin").setup({
-      flavour = "macchiato",
-      transparent_background = true,
-      styles = {
-        comments = { "italic" }
-      },
-    })
-  }
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   use 'rmagatti/auto-session'
 
