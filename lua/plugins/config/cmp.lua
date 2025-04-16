@@ -15,15 +15,15 @@ local icons = {
     Constructor = "",
     Function = "",
     Keyword = "",
-    Method = "",
+    Method = "󰅩",
     Module = "",
     Snippet = "",
     Text = "",
     Variable = "",
     Struct = "",
-    Enum = "",
+    Enum = "󰅪",
     Constant = "",
-    Field = "",
+    Field = "󰄷",
     Interface = ""
   }
 }

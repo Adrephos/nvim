@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
+  ["auto-session"] = {
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/auto-session",
+    url = "https://github.com/rmagatti/auto-session"
+  },
   ["avante.nvim"] = {
     config = { "\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\tload\15avante_lib\frequire\0" },
     loaded = true,
@@ -145,10 +150,21 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["global-note.nvim"] = {
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/global-note.nvim",
+    url = "https://github.com/backdround/global-note.nvim"
+  },
   ["hop.nvim"] = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/smoka7/hop.nvim"
+  },
+  ["image.nvim"] = {
+    config = { "\27LJ\2\n³\2\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\3=\3\a\2B\0\2\1K\0\1\0\17integrations\rmarkdown\1\0\1\rmarkdown\0\1\0\5\21floating_windows\2 only_render_image_at_cursor\2\27download_remote_images\2\25clear_in_insert_mode\2\fenabled\2\1\0\6\23kitty_tmux_warning\2\17integrations\0\14max_width\0\14processor\15magick_cli\15max_height\3\30\fbackend\nkitty\nsetup\nimage\frequire\0" },
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/image.nvim",
+    url = "https://github.com/3rd/image.nvim"
   },
   ["img-clip.nvim"] = {
     loaded = true,
@@ -170,11 +186,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  ["markdown-preview.nvim"] = {
-    loaded = true,
-    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
-    url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -240,6 +251,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+  },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["oil-git-status.nvim"] = {
     config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19oil-git-status\frequire\0" },
@@ -332,14 +348,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: avante.nvim
-time([[Config for avante.nvim]], true)
-try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\tload\15avante_lib\frequire\0", "config", "avante.nvim")
-time([[Config for avante.nvim]], false)
+-- Config for: image.nvim
+time([[Config for image.nvim]], true)
+try_loadstring("\27LJ\2\n³\2\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\3=\3\a\2B\0\2\1K\0\1\0\17integrations\rmarkdown\1\0\1\rmarkdown\0\1\0\5\21floating_windows\2 only_render_image_at_cursor\2\27download_remote_images\2\25clear_in_insert_mode\2\fenabled\2\1\0\6\23kitty_tmux_warning\2\17integrations\0\14max_width\0\14processor\15magick_cli\15max_height\3\30\fbackend\nkitty\nsetup\nimage\frequire\0", "config", "image.nvim")
+time([[Config for image.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\nc\0\0\3\0\4\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\1\0B\0\2\0029\0\3\0B\0\1\1K\0\1\0\27mock_nvim_web_devicons\nsetup\15mini.icons\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
+-- Config for: avante.nvim
+time([[Config for avante.nvim]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\tload\15avante_lib\frequire\0", "config", "avante.nvim")
+time([[Config for avante.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd oil.nvim ]]

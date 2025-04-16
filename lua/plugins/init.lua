@@ -22,6 +22,7 @@ require('plugins.config.oil')
 require('plugins.config.mini_icons')
 require('plugins.config.auto_session')
 require('plugins.config.catppuccin')
+require('plugins.config.global_note')
 
 -- require('plugins.config.hex')
 
@@ -44,7 +45,12 @@ return require('packer').startup(function(use)
   }
   use 'gelguy/wilder.nvim'
 
-  use 'romgrk/barbar.nvim'
+  -- use 'romgrk/barbar.nvim'
+  use {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    requires = { { "nvim-lua/plenary.nvim" } }
+  }
 
   use 'elixir-editors/vim-elixir'
   use 'mhinz/vim-mix-format'
@@ -103,7 +109,6 @@ return require('packer').startup(function(use)
   }
 
   use 'andweeb/presence.nvim'
-  -- use 'github/copilot.vim'
 
   use {
     'folke/todo-comments.nvim',
@@ -153,7 +158,7 @@ return require('packer').startup(function(use)
     }),
   }
 
-  use { "iamcco/markdown-preview.nvim" }
+  -- use { "iamcco/markdown-preview.nvim" }
 
   -- Hex editor
   -- use 'RaafatTurki/hex.nvim'
@@ -183,6 +188,41 @@ return require('packer').startup(function(use)
     },
     config = function()
       require("oil-git-status").setup()
+    end,
+  }
+
+  use { 'backdround/global-note.nvim' }
+
+  use {
+    'windwp/nvim-ts-autotag',
+    require('nvim-ts-autotag').setup({
+      opts = {
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = false
+      },
+    })
+  }
+
+  use {
+    '3rd/image.nvim',
+    config = function()
+      require('image').setup {
+        backend = 'kitty',
+        processor = "magick_cli",
+        integrations = {
+          markdown = {
+            enabled = true,
+            clear_in_insert_mode = true,
+            download_remote_images = true,
+            only_render_image_at_cursor = true,
+            floating_windows = true,
+          },
+        },
+        max_width = nil,
+        max_height = 30,
+        kitty_tmux_warning = true,
+      }
     end,
   }
 
