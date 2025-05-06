@@ -217,6 +217,7 @@ return require('packer').startup(function(use)
             download_remote_images = true,
             only_render_image_at_cursor = true,
             floating_windows = true,
+            only_render_image_at_cursor_mode = "inline"
           },
         },
         max_width = nil,
@@ -224,6 +225,14 @@ return require('packer').startup(function(use)
         kitty_tmux_warning = true,
       }
     end,
+  }
+
+  use { 'WhoIsSethDaniel/mason-tool-installer.nvim' }
+
+  use {'kenn7/vim-arsync',
+    requires = {
+        {'prabirshrestha/async.vim'}
+    }
   }
 
   if PACKER_BOOTSTRAP then require('packer').sync() end
