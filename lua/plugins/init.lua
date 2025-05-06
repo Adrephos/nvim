@@ -23,6 +23,7 @@ require('plugins.config.mini_icons')
 require('plugins.config.auto_session')
 require('plugins.config.catppuccin')
 require('plugins.config.global_note')
+require('plugins.config.mason_tool_installer')
 
 -- require('plugins.config.hex')
 
