@@ -12,6 +12,7 @@ require('plugins.config.hop')
 require('plugins.config.lualine')
 require('plugins.config.presence')
 require('plugins.config.mason')
+require('plugins.config.mason_tool_installer')
 require('plugins.config.cmp')
 require('plugins.config.gitsigns')
 require('plugins.config.indent_blankline')
@@ -23,7 +24,6 @@ require('plugins.config.mini_icons')
 require('plugins.config.auto_session')
 require('plugins.config.catppuccin')
 require('plugins.config.global_note')
-require('plugins.config.mason_tool_installer')
 
 -- require('plugins.config.hex')
 
@@ -170,16 +170,6 @@ return require('packer').startup(function(use)
     run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase && make hexokinase'
   }
 
-  require 'lspconfig'.nil_ls.setup {
-    settings = {
-      ['nil'] = {
-        formatting = {
-          command = { "nixpkgs-fmt" }
-        }
-      }
-    }
-  }
-
   use 'stevearc/oil.nvim'
 
   use {
@@ -230,9 +220,9 @@ return require('packer').startup(function(use)
 
   use { 'WhoIsSethDaniel/mason-tool-installer.nvim' }
 
-  use {'kenn7/vim-arsync',
+  use { 'kenn7/vim-arsync',
     requires = {
-        {'prabirshrestha/async.vim'}
+      { 'prabirshrestha/async.vim' }
     }
   }
 

@@ -66,6 +66,8 @@ vim.keymap.set('n', 'j', "gj", opts)
 vim.keymap.set('n', 'k', "gk", opts)
 
 vim.keymap.set('n', '<leader>l', ':noh<CR>', opts)
+vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
+vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
 
 -- Clipboard
 -- Copy to clipboard

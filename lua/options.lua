@@ -19,8 +19,8 @@ set.backup = false
 set.wrap = true
 
 set.list = true
-set.listchars:append "space:⋅"
-set.listchars:append "tab:║⋅"
+-- set.listchars:append "space:⋅"
+-- set.listchars:append "tab:║⋅"
 set.listchars:append "eol:↴"
 
 function Number_toggle()
