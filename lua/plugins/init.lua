@@ -85,10 +85,12 @@ return require('packer').startup(function(use)
   use 'folke/noice.nvim'
 
   use 'nvim-treesitter/nvim-treesitter'
+
+  use 'MeanderingProgrammer/render-markdown.nvim'
   use 'stevearc/dressing.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'MunifTanjim/nui.nvim'
-  use 'MeanderingProgrammer/render-markdown.nvim'
+
   use 'echasnovski/mini.icons'
   use 'HakonHarnes/img-clip.nvim'
 
@@ -97,9 +99,9 @@ return require('packer').startup(function(use)
     'yetone/avante.nvim',
     branch = 'main',
     run = 'make',
-    config = function()
-      require('avante_lib').load()
-    end
+    -- config = function()
+    --   require('avante').load()
+    -- end
   }
 
   use {
