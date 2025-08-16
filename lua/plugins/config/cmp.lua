@@ -36,7 +36,7 @@ cmp.setup({
   },
   window = {
     completion = cmp.config.window.bordered({
-      border = {'╭', '─', '╮','│','╯', '─', '╰', '│'},
+      border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
       winhighlight = "Normal:CustomCmpMenu,FloatBorder:NONE,CursorLine:CustomCmpCursorLine",
       scrollbar = true
     }),
@@ -64,6 +64,7 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
     { name = 'vim-react-snippets' },
+    { name = 'render-markdown' },
   }, {
     { name = 'buffer' },
     { name = 'path' }

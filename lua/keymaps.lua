@@ -5,9 +5,28 @@ vim.keymap.set('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 vim.keymap.set('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 vim.keymap.set('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-vim.keymap.set('n', '<leader>gp', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
 vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+
+-- Run conform then lsp if conform fails
+vim.keymap.set('n', '<leader>gp', function()
+  require('conform').format({
+    async = true,
+    lsp_fallback = false, -- don't let conform call LSP itself
+    quiet = true,
+    timeout_ms = 2000,
+  }, function(err)
+    if err then
+      vim.lsp.buf.format({ async = true })
+    end
+  end)
+end, opts)
+
+-- Obsidian
+vim.keymap.set('n', '<leader>v', '<cmd>Obsidian paste_img<CR>', opts)
+vim.keymap.set('n', '<leader>of', '<cmd>Obsidian search<CR>', opts)
+vim.keymap.set('n', '<leader>ol', '<cmd>Obsidian follow_link<CR>', opts)
+vim.keymap.set('n', '<leader>on', '<cmd>Obsidian new_from_template<CR>', opts)
 
 -- telescope
 local builtin = require('telescope.builtin')
@@ -17,22 +36,38 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, opts)
 vim.keymap.set('n', '<leader>fb', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
 
+vim.keymap.set('n', '<leader>gw', function()
+  require('telescope').extensions.git_worktree.git_worktree()
+end, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>gc', function()
+  require('telescope').extensions.git_worktree.create_git_worktree()
+end, { noremap = true, silent = true })
+
 -- vim-fugitive
 vim.keymap.set('n', '<leader>gs', ':Git<CR>', opts)
 vim.keymap.set('n', '<leader>gj', ':diffget //3<CR>', opts)
 vim.keymap.set('n', '<leader>gf', ':diffget //2<CR>', opts)
 vim.keymap.set('n', '<leader>gk', ':Git commit<CR>', opts)
 vim.keymap.set('n', '<leader>gvd', ':Gvdiffsplit!<CR>', opts)
-vim.keymap.set('n', '<leader>gnh', ':Gitsigns prev_hunk<CR>', opts)
-vim.keymap.set('n', '<leader>gph', ':Gitsigns next_hunk<CR>', opts)
 
 -- Oil
-vim.keymap.set('n', '<C-n>', '<CMD>Oil<CR>', opts)
+-- vim.keymap.set('n', '<C-n>', '<CMD>Oil<CR>', opts)
+
+-- Yazi
+-- vim.keymap.set('n', '<C-n>', '<CMD>Yazi<CR>', opts)
+-- Fix weird issue with yazi
+vim.keymap.set('n', '<C-n>', function()
+  vim.cmd("Yazi")
+  vim.defer_fn(function()
+    vim.api.nvim_feedkeys("j", "n", true)
+    vim.api.nvim_feedkeys("k", "n", true)
+  end, 100)
+end, { noremap = true, silent = true })
 
 -- Notify
 vim.keymap.set('n', '<leader>nd', '<cmd>NoiceDismiss<CR>', opts)
 
--- HopWord
+-- Hop Word
 vim.keymap.set('n', '<leader>hw', ':HopWord<CR>', opts)
 
 -- Harpoon
@@ -48,7 +83,7 @@ vim.keymap.set('n', '<C-l>', function() hp:list():select(4) end, opts)
 vim.keymap.set("n", "<leader>hk", function() hp:list():prev() end)
 vim.keymap.set("n", "<leader>hj", function() hp:list():next() end)
 
--- Gitsigns
+-- Git signs
 local gs = require('gitsigns')
 vim.keymap.set('n', '<leader>hb', function() gs.blame_line { full = true } end, opts)
 vim.keymap.set('n', '<leader>hd', gs.toggle_deleted, opts)
@@ -62,6 +97,9 @@ vim.keymap.set('n', 'K', ':m .-2<CR>==', opts)
 vim.keymap.set('n', 'J', ':m .+1<CR>==', opts)
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
+
+vim.keymap.set("n", "<C-S-j>", "J", { noremap = true, silent = true })
+
 vim.keymap.set('n', 'j', "gj", opts)
 vim.keymap.set('n', 'k', "gk", opts)
 
@@ -88,3 +126,46 @@ vim.keymap.set('n', '<Leader>dvc', ":DataViewerClose<CR>", opts)
 -- Global Note
 local gn = require('global-note')
 vim.keymap.set('n', '<leader>gn', function() gn.toggle_note() end, opts)
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("syntax on")
+  end,
+})
+
+-- Trouble
+vim.keymap.set('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>', {
+  noremap = true,
+  silent = true,
+  desc = 'Workspace Diagnostics (Trouble)'
+})
+
+vim.keymap.set('n', '<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', {
+  noremap = true,
+  silent = true,
+  desc = 'Buffer Diagnostics (Trouble)'
+})
+
+vim.keymap.set('n', '<leader>cs', '<cmd>Trouble symbols toggle focus=false<cr>', {
+  noremap = true,
+  silent = true,
+  desc = 'Document Symbols (Trouble)'
+})
+
+vim.keymap.set('n', '<leader>cl', '<cmd>Trouble lsp toggle focus=false win.position=right<cr>', {
+  noremap = true,
+  silent = true,
+  desc = 'LSP Definitions (Trouble)'
+})
+
+vim.keymap.set('n', '<leader>xL', '<cmd>Trouble loclist toggle<cr>', {
+  noremap = true,
+  silent = true,
+  desc = 'Location List (Trouble)'
+})
+
+vim.keymap.set('n', '<leader>xQ', '<cmd>Trouble qflist toggle<cr>', {
+  noremap = true,
+  silent = true,
+  desc = 'Quickfix List (Trouble)'
+})

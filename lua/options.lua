@@ -5,6 +5,7 @@ vim.g.R_objbr_auto_start = 2
 vim.g.R_auto_start = 2
 vim.g.R_objbr_place = 'BOTTOM'
 vim.opt.laststatus = 3
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 set.number = toggle
 set.relativenumber = toggle
@@ -16,11 +17,11 @@ set.mouse = ""
 
 set.swapfile = false
 set.backup = false
-set.wrap = true
+set.wrap = false
 
 set.list = true
--- set.listchars:append "space:⋅"
--- set.listchars:append "tab:║⋅"
+set.listchars:append "space:⋅"
+set.listchars:append "tab:▍⋅"
 set.listchars:append "eol:↴"
 
 function Number_toggle()
@@ -29,7 +30,13 @@ function Number_toggle()
   toggle = not toggle
 end
 
-vim.cmd [[colorscheme catppuccin]]
+-- Spell
+vim.opt.spell = true
+vim.opt.spelllang = { 'en', 'es', 'cjk' }
+
+vim.opt.textwidth = 80
+vim.opt.termguicolors = true
+vim.cmd [[colorscheme tokyonight]]
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

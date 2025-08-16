@@ -8,6 +8,24 @@ require('mason').setup({
   }
 })
 
+require('lspconfig').lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
+    },
+  },
+}
+
+require("conform").setup({
+  formatters_by_ft = {
+    javascript = { "prettierd" },
+    typescript = { "prettierd" },
+    markdown = { "prettierd" },
+  },
+})
+
 require('lspconfig').dartls.setup {
   cmd = { "dart", "language-server", "--protocol=lsp" },
 }
@@ -15,7 +33,21 @@ require('lspconfig').dartls.setup {
 require('lspconfig').ltex.setup {
   settings = {
     ltex = {
-      enabled = { "bibtex", "gitcommit", "org", "tex", "restructuredtext", "rsweave", "latex", "quarto", "rmd", "context", "mail", "plaintext" }
+      enabled = {
+        "bibtex",
+        "gitcommit",
+        "org",
+        "tex",
+        "restructuredtext",
+        "rsweave",
+        "latex",
+        "quarto",
+        "rmd",
+        "context",
+        "mail",
+        "plaintext",
+        -- "markdown"
+      },
     }
   }
 }

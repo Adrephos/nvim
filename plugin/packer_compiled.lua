@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["async.vim"] = {
-    loaded = true,
-    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/async.vim",
-    url = "https://github.com/prabirshrestha/async.vim"
-  },
   ["auto-pairs"] = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/auto-pairs",
@@ -95,10 +90,14 @@ _G.packer_plugins = {
     url = "https://github.com/rmagatti/auto-session"
   },
   ["avante.nvim"] = {
-    config = { "\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\tload\15avante_lib\frequire\0" },
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/avante.nvim",
     url = "https://github.com/yetone/avante.nvim"
+  },
+  ["aw-watcher-vim"] = {
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/aw-watcher-vim",
+    url = "https://github.com/ActivityWatch/aw-watcher-vim"
   },
   catppuccin = {
     loaded = true,
@@ -125,6 +124,12 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["conform.nvim"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fconform\frequire\0" },
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/conform.nvim",
+    url = "https://github.com/stevearc/conform.nvim"
+  },
   ["data-viewer.nvim"] = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/data-viewer.nvim",
@@ -145,6 +150,11 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["git-worktree.nvim"] = {
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/git-worktree.nvim",
+    url = "https://github.com/polarmutex/git-worktree.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -160,16 +170,15 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["hex.nvim"] = {
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/hex.nvim",
+    url = "https://github.com/RaafatTurki/hex.nvim"
+  },
   ["hop.nvim"] = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/smoka7/hop.nvim"
-  },
-  ["image.nvim"] = {
-    config = { "\27LJ\2\n€\2\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\3=\3\a\2B\0\2\1K\0\1\0\17integrations\rmarkdown\1\0\1\rmarkdown\0\1\0\6 only_render_image_at_cursor\2\27download_remote_images\2\25clear_in_insert_mode\2\fenabled\2%only_render_image_at_cursor_mode\vinline\21floating_windows\2\1\0\6\fbackend\nkitty\23kitty_tmux_warning\2\15max_height\3\30\14max_width\0\17integrations\0\14processor\15magick_cli\nsetup\nimage\frequire\0" },
-    loaded = true,
-    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/image.nvim",
-    url = "https://github.com/3rd/image.nvim"
   },
   ["img-clip.nvim"] = {
     loaded = true,
@@ -207,15 +216,16 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["mdmath.nvim"] = {
+    config = { "\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nbuild\vmdmath\frequire\0" },
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/mdmath.nvim",
+    url = "https://github.com/Thiago4532/mdmath.nvim"
+  },
   ["mini.icons"] = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/mini.icons",
     url = "https://github.com/echasnovski/mini.icons"
-  },
-  ["neoscroll.nvim"] = {
-    loaded = true,
-    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
-    url = "https://github.com/karb94/neoscroll.nvim"
   },
   ["noice.nvim"] = {
     loaded = true,
@@ -272,6 +282,16 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
+  },
+  ["obsidian.nvim"] = {
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
+    url = "https://github.com/obsidian-nvim/obsidian.nvim"
+  },
   ["oil-git-status.nvim"] = {
     config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19oil-git-status\frequire\0" },
     load_after = {},
@@ -300,20 +320,32 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/render-markdown.nvim",
     url = "https://github.com/MeanderingProgrammer/render-markdown.nvim"
   },
+  ["snacks.nvim"] = {
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/snacks.nvim",
+    url = "https://github.com/folke/snacks.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["todo-comments.nvim"] = {
+    config = { "\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0" },
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
   },
-  ["vim-arsync"] = {
+  ["tokyonight.nvim"] = {
     loaded = true,
-    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/vim-arsync",
-    url = "https://github.com/kenn7/vim-arsync"
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["trouble.nvim"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ftrouble\frequire\0" },
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
   },
   ["vim-elixir"] = {
     loaded = true,
@@ -364,22 +396,35 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/yats.vim",
     url = "https://github.com/HerringtonDarkholme/yats.vim"
+  },
+  ["yazi.nvim"] = {
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/yazi.nvim",
+    url = "https://github.com/mikavilpas/yazi.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: image.nvim
-time([[Config for image.nvim]], true)
-try_loadstring("\27LJ\2\n€\2\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\3=\3\a\2B\0\2\1K\0\1\0\17integrations\rmarkdown\1\0\1\rmarkdown\0\1\0\6 only_render_image_at_cursor\2\27download_remote_images\2\25clear_in_insert_mode\2\fenabled\2%only_render_image_at_cursor_mode\vinline\21floating_windows\2\1\0\6\fbackend\nkitty\23kitty_tmux_warning\2\15max_height\3\30\14max_width\0\17integrations\0\14processor\15magick_cli\nsetup\nimage\frequire\0", "config", "image.nvim")
-time([[Config for image.nvim]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+try_loadstring("\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0", "config", "todo-comments.nvim")
+time([[Config for todo-comments.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\nc\0\0\3\0\4\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\1\0B\0\2\0029\0\3\0B\0\1\1K\0\1\0\27mock_nvim_web_devicons\nsetup\15mini.icons\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
--- Config for: avante.nvim
-time([[Config for avante.nvim]], true)
-try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\tload\15avante_lib\frequire\0", "config", "avante.nvim")
-time([[Config for avante.nvim]], false)
+-- Config for: mdmath.nvim
+time([[Config for mdmath.nvim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nbuild\vmdmath\frequire\0", "config", "mdmath.nvim")
+time([[Config for mdmath.nvim]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+time([[Config for trouble.nvim]], false)
+-- Config for: conform.nvim
+time([[Config for conform.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fconform\frequire\0", "config", "conform.nvim")
+time([[Config for conform.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd oil.nvim ]]

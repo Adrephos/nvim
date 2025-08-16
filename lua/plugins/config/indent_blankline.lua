@@ -13,6 +13,7 @@ require("ibl").setup({
     highlight = highlight
   },
   indent = {
-    tab_char = "▍",
+    -- tab_char = "▍",
+    char = "▏"
   }
 })

@@ -5,7 +5,6 @@ require('mason-tool-installer').setup {
     "clang-format",
     "doctoc",
     "emmet-language-server",
-    "emmylua_ls",
     "eslint-lsp",
     "gopls",
     "htmx-lsp",

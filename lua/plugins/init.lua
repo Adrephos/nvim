@@ -22,8 +22,14 @@ require('plugins.config.avante')
 require('plugins.config.oil')
 require('plugins.config.mini_icons')
 require('plugins.config.auto_session')
-require('plugins.config.catppuccin')
+require('plugins.config.themes')
 require('plugins.config.global_note')
+require('plugins.config.git_worktree')
+require('plugins.config.snacks')
+require('plugins.config.yazi')
+require('plugins.config.obsidian')
+require('plugins.config.notify')
+-- require('plugins.config.image')
 
 -- require('plugins.config.hex')
 
@@ -46,7 +52,6 @@ return require('packer').startup(function(use)
   }
   use 'gelguy/wilder.nvim'
 
-  -- use 'romgrk/barbar.nvim'
   use {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
@@ -95,6 +100,7 @@ return require('packer').startup(function(use)
   use 'HakonHarnes/img-clip.nvim'
 
   -- Avante.nvim with build process
+  use 'folke/snacks.nvim'
   use {
     'yetone/avante.nvim',
     branch = 'main',
@@ -112,11 +118,6 @@ return require('packer').startup(function(use)
   }
 
   use 'andweeb/presence.nvim'
-
-  use {
-    'folke/todo-comments.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-  }
 
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -164,7 +165,7 @@ return require('packer').startup(function(use)
   -- use { "iamcco/markdown-preview.nvim" }
 
   -- Hex editor
-  -- use 'RaafatTurki/hex.nvim'
+  use 'RaafatTurki/hex.nvim'
 
   -- Color highlight
   use {
@@ -197,36 +198,58 @@ return require('packer').startup(function(use)
     })
   }
 
-  use {
-    '3rd/image.nvim',
-    config = function()
-      require('image').setup {
-        backend = 'kitty',
-        processor = "magick_cli",
-        integrations = {
-          markdown = {
-            enabled = true,
-            clear_in_insert_mode = true,
-            download_remote_images = true,
-            only_render_image_at_cursor = true,
-            floating_windows = true,
-            only_render_image_at_cursor_mode = "inline"
-          },
-        },
-        max_width = nil,
-        max_height = 30,
-        kitty_tmux_warning = true,
-      }
-    end,
-  }
+  -- use { '3rd/image.nvim', }
 
   use { 'WhoIsSethDaniel/mason-tool-installer.nvim' }
 
-  use { 'kenn7/vim-arsync',
+  use { 'ActivityWatch/aw-watcher-vim' }
+
+  use { 'polarmutex/git-worktree.nvim' }
+
+  use({
+    tag = "*",
+    "obsidian-nvim/obsidian.nvim",
     requires = {
-      { 'prabirshrestha/async.vim' }
-    }
+      "nvim-lua/plenary.nvim",
+    },
+  })
+
+  use { 'mikavilpas/yazi.nvim' }
+
+  use {
+    'folke/todo-comments.nvim',
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+    end,
   }
+  require('todo-comments').setup()
+
+  use {
+    'folke/trouble.nvim',
+    requires = {
+      'nvim-tree/nvim-web-devicons'
+    },
+    config = function()
+      require('trouble').setup()
+    end,
+  }
+  use "folke/tokyonight.nvim"
+
+  use({
+    "Thiago4532/mdmath.nvim",
+    config = function()
+      require 'mdmath'.build()
+    end,
+  })
+
+  use({
+    "stevearc/conform.nvim",
+    config = function()
+      require("conform").setup()
+    end,
+  })
 
   if PACKER_BOOTSTRAP then require('packer').sync() end
 end)

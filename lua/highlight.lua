@@ -22,3 +22,10 @@ vim.api.nvim_set_hl(0, "CmpItemKindField", { fg = "#50fa7b" })
 vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = "#FFC300" })
 vim.api.nvim_set_hl(0, "CmpItemKindEnum", { fg = "#5573f4" })
 vim.api.nvim_set_hl(0, "NotifyBackground", { bg = "#000000" })
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  callback = function()
+    pcall(vim.treesitter.stop) -- stops outdated highlight process
+    pcall(vim.treesitter.start) -- restarts with correct ranges
+  end,
+})
