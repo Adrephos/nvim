@@ -51,18 +51,7 @@ vim.keymap.set('n', '<leader>gk', ':Git commit<CR>', opts)
 vim.keymap.set('n', '<leader>gvd', ':Gvdiffsplit!<CR>', opts)
 
 -- Oil
--- vim.keymap.set('n', '<C-n>', '<CMD>Oil<CR>', opts)
-
--- Yazi
--- vim.keymap.set('n', '<C-n>', '<CMD>Yazi<CR>', opts)
--- Fix weird issue with yazi
-vim.keymap.set('n', '<C-n>', function()
-  vim.cmd("Yazi")
-  vim.defer_fn(function()
-    vim.api.nvim_feedkeys("j", "n", true)
-    vim.api.nvim_feedkeys("k", "n", true)
-  end, 100)
-end, { noremap = true, silent = true })
+vim.keymap.set('n', '<C-n>', '<CMD>Oil<CR>', opts)
 
 -- Notify
 vim.keymap.set('n', '<leader>nd', '<cmd>NoiceDismiss<CR>', opts)
@@ -98,7 +87,7 @@ vim.keymap.set('n', 'J', ':m .+1<CR>==', opts)
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
 
-vim.keymap.set("n", "<C-S-j>", "J", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-j>", "J", { noremap = true, silent = true })
 
 vim.keymap.set('n', 'j', "gj", opts)
 vim.keymap.set('n', 'k', "gk", opts)
@@ -165,6 +154,13 @@ vim.keymap.set('n', '<leader>xL', '<cmd>Trouble loclist toggle<cr>', {
 })
 
 vim.keymap.set('n', '<leader>xQ', '<cmd>Trouble qflist toggle<cr>', {
+  noremap = true,
+  silent = true,
+  desc = 'Quickfix List (Trouble)'
+})
+
+-- Code companion
+vim.keymap.set('n', '<leader>cc', '<cmd>CodeCompanionActions<cr>', {
   noremap = true,
   silent = true,
   desc = 'Quickfix List (Trouble)'

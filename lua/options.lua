@@ -31,8 +31,12 @@ function Number_toggle()
 end
 
 -- Spell
-vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.spelllang = { 'en', 'es', 'cjk' }
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "text", "gitcommit" },
+  command = "setlocal spell",
+})
 
 vim.opt.textwidth = 80
 vim.opt.termguicolors = true
@@ -49,6 +53,6 @@ vim.g.vim_jsx_pretty_colorful_config = 1
 
 vim.notify = require('notify')
 
-vim.g.Hexokinase_highlighters = { 'backgroundfull' }
+vim.g.Hexokinase_highlighters = { 'virtual' }
 
 vim.keymap.set('n', '<F2>', ':lua Number_toggle()<CR>', {})

@@ -10,7 +10,7 @@ if not ok then return end
 
 require('plugins.config.hop')
 require('plugins.config.lualine')
-require('plugins.config.presence')
+require('plugins.config.cord')
 require('plugins.config.mason')
 require('plugins.config.mason_tool_installer')
 require('plugins.config.cmp')
@@ -18,7 +18,9 @@ require('plugins.config.gitsigns')
 require('plugins.config.indent_blankline')
 require('plugins.config.noice')
 require('plugins.config.treesitter')
+require('plugins.config.codecompanion')
 require('plugins.config.avante')
+require('plugins.config.render-markdown')
 require('plugins.config.oil')
 require('plugins.config.mini_icons')
 require('plugins.config.auto_session')
@@ -26,10 +28,8 @@ require('plugins.config.themes')
 require('plugins.config.global_note')
 require('plugins.config.git_worktree')
 require('plugins.config.snacks')
-require('plugins.config.yazi')
 require('plugins.config.obsidian')
 require('plugins.config.notify')
--- require('plugins.config.image')
 
 -- require('plugins.config.hex')
 
@@ -99,15 +99,14 @@ return require('packer').startup(function(use)
   use 'echasnovski/mini.icons'
   use 'HakonHarnes/img-clip.nvim'
 
-  -- Avante.nvim with build process
   use 'folke/snacks.nvim'
+
+  use { 'olimorris/codecompanion.nvim' }
+
   use {
     'yetone/avante.nvim',
     branch = 'main',
     run = 'make',
-    -- config = function()
-    --   require('avante').load()
-    -- end
   }
 
   use {
@@ -117,7 +116,10 @@ return require('packer').startup(function(use)
     }),
   }
 
-  use 'andweeb/presence.nvim'
+  use {
+    'vyfor/cord.nvim',
+    run = ':Cord update',
+  }
 
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -130,9 +132,9 @@ return require('packer').startup(function(use)
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'L3MON4D3/LuaSnip' },
     },
-    require('lspconfig')['hls'].setup {
+    vim.lsp.config('hls', {
       filetypes = { 'haskell', 'lhaskell', 'cabal' },
-    }
+    })
   }
 
   use {
@@ -198,8 +200,6 @@ return require('packer').startup(function(use)
     })
   }
 
-  -- use { '3rd/image.nvim', }
-
   use { 'WhoIsSethDaniel/mason-tool-installer.nvim' }
 
   use { 'ActivityWatch/aw-watcher-vim' }
@@ -213,8 +213,6 @@ return require('packer').startup(function(use)
       "nvim-lua/plenary.nvim",
     },
   })
-
-  use { 'mikavilpas/yazi.nvim' }
 
   use {
     'folke/todo-comments.nvim',
@@ -238,9 +236,9 @@ return require('packer').startup(function(use)
   use "folke/tokyonight.nvim"
 
   use({
-    "Thiago4532/mdmath.nvim",
+    "jmbuhr/otter.nvim",
     config = function()
-      require 'mdmath'.build()
+      require("otter").setup()
     end,
   })
 

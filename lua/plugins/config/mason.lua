@@ -8,7 +8,7 @@ require('mason').setup({
   }
 })
 
-require('lspconfig').lua_ls.setup {
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
@@ -16,7 +16,7 @@ require('lspconfig').lua_ls.setup {
       },
     },
   },
-}
+})
 
 require("conform").setup({
   formatters_by_ft = {
@@ -26,11 +26,11 @@ require("conform").setup({
   },
 })
 
-require('lspconfig').dartls.setup {
+vim.lsp.config('dartls', {
   cmd = { "dart", "language-server", "--protocol=lsp" },
-}
+})
 
-require('lspconfig').ltex.setup {
+vim.lsp.config('ltex', {
   settings = {
     ltex = {
       enabled = {
@@ -50,7 +50,7 @@ require('lspconfig').ltex.setup {
       },
     }
   }
-}
+})
 
 -- require('lspconfig').jdtls.setup {
 --   settings = {
@@ -60,7 +60,7 @@ require('lspconfig').ltex.setup {
 --   }
 -- }
 
-require 'lspconfig'.nil_ls.setup {
+vim.lsp.config('nil_ls', {
   settings = {
     ['nil'] = {
       formatting = {
@@ -68,7 +68,7 @@ require 'lspconfig'.nil_ls.setup {
       }
     }
   }
-}
+})
 
 require('mason-lspconfig').setup({
   ensure_installed = {}

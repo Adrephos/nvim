@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/auto-session",
     url = "https://github.com/rmagatti/auto-session"
   },
-  ["avante.nvim"] = {
-    loaded = true,
-    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/avante.nvim",
-    url = "https://github.com/yetone/avante.nvim"
-  },
   ["aw-watcher-vim"] = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/aw-watcher-vim",
@@ -129,6 +124,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/conform.nvim",
     url = "https://github.com/stevearc/conform.nvim"
+  },
+  ["cord.nvim"] = {
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/cord.nvim",
+    url = "https://github.com/vyfor/cord.nvim"
   },
   ["data-viewer.nvim"] = {
     loaded = true,
@@ -216,12 +216,6 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["mdmath.nvim"] = {
-    config = { "\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nbuild\vmdmath\frequire\0" },
-    loaded = true,
-    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/mdmath.nvim",
-    url = "https://github.com/Thiago4532/mdmath.nvim"
-  },
   ["mini.icons"] = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/mini.icons",
@@ -305,15 +299,16 @@ _G.packer_plugins = {
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/oil.nvim",
     url = "https://github.com/stevearc/oil.nvim"
   },
+  ["otter.nvim"] = {
+    config = { "\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\notter\frequire\0" },
+    loaded = true,
+    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/otter.nvim",
+    url = "https://github.com/jmbuhr/otter.nvim"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["presence.nvim"] = {
-    loaded = true,
-    path = "/home/gleipnir/.local/share/nvim/site/pack/packer/start/presence.nvim",
-    url = "https://github.com/andweeb/presence.nvim"
   },
   ["render-markdown.nvim"] = {
     loaded = true,
@@ -409,22 +404,22 @@ time([[Defining packer_plugins]], false)
 time([[Config for todo-comments.nvim]], true)
 try_loadstring("\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0", "config", "todo-comments.nvim")
 time([[Config for todo-comments.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\nc\0\0\3\0\4\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\1\0B\0\2\0029\0\3\0B\0\1\1K\0\1\0\27mock_nvim_web_devicons\nsetup\15mini.icons\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
--- Config for: mdmath.nvim
-time([[Config for mdmath.nvim]], true)
-try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nbuild\vmdmath\frequire\0", "config", "mdmath.nvim")
-time([[Config for mdmath.nvim]], false)
--- Config for: trouble.nvim
-time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
-time([[Config for trouble.nvim]], false)
 -- Config for: conform.nvim
 time([[Config for conform.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fconform\frequire\0", "config", "conform.nvim")
 time([[Config for conform.nvim]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+time([[Config for trouble.nvim]], false)
+-- Config for: otter.nvim
+time([[Config for otter.nvim]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\notter\frequire\0", "config", "otter.nvim")
+time([[Config for otter.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\nc\0\0\3\0\4\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\1\0B\0\2\0029\0\3\0B\0\1\1K\0\1\0\27mock_nvim_web_devicons\nsetup\15mini.icons\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd oil.nvim ]]

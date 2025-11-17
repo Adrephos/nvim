@@ -1,4 +1,4 @@
 require('global-note').setup({
   filename = 'ノート.md',
-  directory = "~/"
+  directory = "~/workspace/obsidian/Global Note/"
 })

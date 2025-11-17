@@ -16,3 +16,14 @@ require('image').setup {
   max_height_window_percentage = 70,
   hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" },
 }
+
+-- require('mdmath').setup({
+--   filetypes = { 'markdown' },
+--   foreground = 'Normal',
+--   anticonceal = true,
+--   hide_on_insert = true,
+--   dynamic = true,
+--   dynamic_scale = 0.5,
+--   update_interval = 400,
+--   internal_scale = 1.0,
+-- })
